@@ -1,0 +1,48 @@
+<agm-map [zoom]="16" [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<section class="uv-contact">
+    <div class="container">
+        <div class="row section-separator">
+            <div class="col-md-9 col-sm-12 col-xs-12 content-widget">
+                <div class="col-xs-12 widget-title">
+                    <h4>Leave a Message</h4>
+                    <hr class="uv-hr">
+                </div>
+                <form id="contactForm" class="single-form quate-form" data-toggle="validator" novalidate="true">
+                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                    <div class="col-md-4">
+                        <input name="name" class="contact-name form-control" id="name" type="text"
+                            placeholder="First Name" required="">
+                        <input name="name" class="contact-email form-control" id="L_name" type="text"
+                            placeholder="Last Name" required="">
+                        <input name="email" class="contact-subject form-control" id="email" type="email"
+                            placeholder="Your Email" required="">
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                        <textarea class="contact-message form-control" id="message" placeholder="Your Message"
+                            required=""></textarea>
+                        <button type="submit" class="btn btn-fill disabled">send message <i class="icon icons8-advance"
+                                id="form-submit"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12 content-widget uv-contact-details-1">
+                <div class="widget-title">
+                    <h4>Contact Details</h4>
+                    <hr class="uv-hr">
+                </div>
+                <div class="contact-list">
+                    <ul class="contact-details">
+                        <li><i class="far fa-envelope"></i> <a href="mailto:{{contactInfo?.email}}">
+                                {{ contactInfo?.email }}</a>
+                        </li>
+                        <li><i class="fas fa-phone-alt"></i>{{ contactInfo?.phone1 }}</li>
+                        <li><i class="fas fa-phone-alt"></i>{{ contactInfo?.phone2 }}</li>
+                        <li>{{ contactInfo?.address }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

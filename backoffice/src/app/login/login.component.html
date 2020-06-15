@@ -1,0 +1,24 @@
+<div class="container mt-5">
+    <form #f="ngForm" (ngSubmit)="submit(f)">
+        <div class="form-group">
+            <label for="Email">Email address</label>
+            <input required minlength="10" maxlength="150" ngModel #Email="ngModel" type="Email" class="form-control"
+                name="Email" id="Email">
+
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input required minlength="5" maxlength="150" ngModel #password="ngModel" type="password"
+                class="form-control" name="password" id="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="alert alert-danger mt-2" *ngIf="!f.valid && f.touched">
+            <div *ngIf="Email.errors && Email.errors.required">Email is Required.</div>
+            <div *ngIf="Email.errors  && Email.errors.minlength">Email should be minimum 10 characters.</div>
+            <div *ngIf="password.errors && password.errors.required">Password is Required.</div>
+            <div *ngIf="password.errors  && password.errors.minlength">Password should be minimum 5 characters.</div>
+            <div *ngIf="f.form.errors?.invalidMailorPass">Invalid Email or Password.</div>
+            <div *ngIf="f.form.errors?.unknownError">Unknown Error occured.</div>
+        </div>
+    </form>
+</div>
